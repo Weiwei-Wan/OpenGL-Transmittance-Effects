@@ -1,0 +1,15 @@
+#version 330
+
+in vec3 normalIn;
+in vec3 fragPosIn;
+
+uniform vec3 cameraPos;
+uniform samplerCube skybox;
+
+vec3 I = normalize(fragPosIn - cameraPos);
+vec3 R = reflect(I, normalize(normalIn));
+
+void main(){
+    gl_FragColor = texture(skybox, R);
+}
+

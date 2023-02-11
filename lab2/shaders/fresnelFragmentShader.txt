@@ -1,0 +1,23 @@
+#version 330
+
+in vec3 normalIn;
+in vec3 fragPosIn;
+
+uniform vec3 cameraPos;
+uniform samplerCube skybox;
+uniform float Eta;
+uniform float FresnelPower;
+
+vec3 I = normalize(fragPosIn - cameraPos);
+vec3 R = reflect(I, normalize(normalIn));
+vec3 T = refract(I, normalize(normalIn), Eta);
+float F = ((1.0-Eta) * (1.0-Eta)) / ((1.0+Eta) * (1.0+Eta));
+float Ratio = F + (1.0 - F) * pow((1.0 - dot(-normalize(fragPosIn), normalize(normalIn))), FresnelPower);
+
+vec3 refractColor = vec3(texture(skybox, T));
+vec3 reflectColor = vec3(texture(skybox, R));
+vec3 color = mix(refractColor, reflectColor, Ratio);
+
+void main(){
+    gl_FragColor = vec4(color, 1.0);
+}
