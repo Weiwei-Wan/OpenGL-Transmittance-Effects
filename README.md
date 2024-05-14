@@ -12,6 +12,8 @@ Shaders include:
 
 • Chromatic dispersion effect
 
+<img width="1002" alt="image" src="https://github.com/Weiwei-Wan/OpenGL-Transmittance-Effects/assets/74362292/4ddc6948-ace5-4dff-8853-dff801a5a72d">
+
 
 Environment texture in the scene would affects the appearance of objects
 
