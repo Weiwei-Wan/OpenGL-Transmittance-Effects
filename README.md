@@ -12,7 +12,8 @@ Shaders include:
 
 • Chromatic dispersion effect
 
-• Environment texture in the scene would affects the appearance of objects
+
+Environment texture in the scene would affects the appearance of objects
 
 C++ and OpenGL have been used for this project
 
